@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>儒家区块链 | Confucian Blockchain</title>
+    <meta name="description" content="科学法律和儒学的融合，个人社会和宇宙的交响 - 披上区块链铠甲重生的不死凤凰">
+    <meta name="keywords" content="儒家,区块链,CON代币,Juno,Cosmos,DeFi">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #9DB4C0 0%, #7BA7BC 100%); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full mr-3"></div>
+                    <span class="text-xl font-bold text-gray-900">儒家区块链</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-orange-500 transition-colors">首页</a>
+                    <a href="#exchange" class="text-gray-700 hover:text-orange-500 transition-colors">交换平台</a>
+                    <a href="#token" class="text-gray-700 hover:text-orange-500 transition-colors">CON代币</a>
+                    <a href="#wallet" class="text-gray-700 hover:text-orange-500 transition-colors">钱包</a>
+                    <button type="button" id="navConnectBtn" class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">
+                        连接钱包
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" id="mobileMenuBtn" class="text-gray-700 hover:text-orange-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="gradient-bg text-white py-12">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <h1 class="text-2xl md:text-3xl font-bold mb-4 text-white">
+                科学法律和儒学的融合
+                <br>
+                <span class="text-orange-400">个人社会和宇宙的交响</span>
+            </h1>
+            <p class="text-lg mb-6 text-white opacity-90">
+                披上区块链铠甲重生的不死凤凰
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <button type="button" onclick="scrollToWallet()" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    开始体验
+                </button>
+                <button type="button" onclick="scrollToExchange()" class="border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                    了解更多
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 交换平台介绍 -->
+    <section id="exchange" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">儒家构建自由合作交换的社会</h2>
+            <p class="text-xl text-gray-600 mb-8">从二手物品交换开始，让每一件物品都能找到它的价值</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gray-50 p-6 rounded-xl card-hover">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">🔄 物品换CON</h3>
+                    <p class="text-gray-600 mb-4">将您的二手物品分享到平台，社区成员可以用CON代币进行交换</p>
+                    <button type="button" onclick="showComingSoon('物品分享')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        分享物品
+                    </button>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl card-hover">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">🤝 CON换物平台</h3>
+                    <p class="text-gray-600 mb-4">使用CON代币与社区成员交换二手物品和服务，共建可持续社区</p>
+                    <button type="button" onclick="showComingSoon('交换平台')" class="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors">
+                        参与交换
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CON代币信息 -->
+    <section id="token" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">CON代币</h2>
+                <p class="text-xl text-gray-600">儒家区块链生态系统的核心数字货币</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">代币信息</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span class="text-gray-600">名称</span>
+                                <span class="font-semibold">Confucian Token</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span class="text-gray-600">符号</span>
+                                <span class="font-semibold">CON</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span class="text-gray-600">网络</span>
+                                <span class="font-semibold">Juno Network</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span class="text-gray-600">总供应量</span>
+                                <span class="font-semibold">10万亿 CON</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span class="text-gray-600">标准</span>
+                                <span class="font-semibold">CW20</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">用途</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                <span class="text-gray-700">DAO治理投票</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                <span class="text-gray-700">物品服务交换</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                <span class="text-gray-700">社区贡献奖励</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                <span class="text-gray-700">质押获得收益</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <div class="bg-gray-100 rounded-lg p-4 mb-4">
+                        <p class="text-sm text-gray-600 mb-2">合约地址</p>
+                        <p class="font-mono text-xs break-all text-gray-800" id="contractAddress">juno10nd8xs9xys5g44g0fvzyzj6vm2knsa3r86knp7f5gkx04f2rmvrs02kxzq</p>
+                    </div>
+                    <button type="button" id="addTokenBtn" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors mr-4">
+                        添加到钱包
+                    </button>
+                    <button type="button" onclick="copyContract()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                        复制地址
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 钱包中心 -->
+    <section id="wallet" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">钱包中心</h2>
+                <p class="text-xl text-gray-600">管理您的CON代币，参与儒家区块链生态</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div id="walletStatus" class="bg-gray-50 rounded-2xl p-8 mb-8 shadow-lg">
+                    <div id="disconnectedState">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">连接钱包</h3>
+                            <p class="text-gray-600 mb-6">连接Leap钱包后可查看CON代币余额，参与社区治理</p>
+                            <button type="button" id="connectLeap" class="bg-orange-500 text-white px-8 py-4 rounded-lg hover:bg-orange-600 transition-colors text-lg font-semibold">
+                                连接 Leap 钱包
+                            </button>
+                            <p class="text-sm text-gray-500 mt-3">推荐使用 Leap 钱包，完美支持 Cosmos 生态</p>
+                        </div>
+                    </div>
+                    
+                    <div id="connectedState" class="hidden">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-900">钱包已连接</h3>
+                                    <p id="walletAddress" class="text-sm text-gray-600 font-mono"></p>
+                                </div>
+                            </div>
+                            <button type="button" id="disconnectWallet" class="text-gray-500 hover:text-orange-500 transition-colors">
+                                断开连接
+                            </button>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">CON 余额</h4>
+                                <p id="conBalance" class="text-3xl font-bold text-orange-500">0</p>
+                                <p class="text-sm text-gray-500">Confucian Token</p>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">JUNO 余额</h4>
+                                <p id="junoBalance" class="text-3xl font-bold text-blue-600">0</p>
+                                <p class="text-sm text-gray-500">网络费用</p>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">治理权重</h4>
+                                <p id="votingPower" class="text-3xl font-bold text-green-500">0%</p>
+                                <p class="text-sm text-gray-500">DAO投票权</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 功能按钮 -->
+                <div id="walletFunctions" class="hidden grid md:grid-cols-3 gap-6">
+                    <button type="button" id="faucetButton" class="bg-blue-600 text-white p-6 rounded-xl hover:bg-blue-700 transition-colors text-center">
+                        <svg class="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                        <div class="font-semibold">领取代币</div>
+                        <div class="text-sm opacity-80">每日免费领取</div>
+                    </button>
+                    
+                    <button type="button" id="transferButton" class="bg-orange-500 text-white p-6 rounded-xl hover:bg-orange-600 transition-colors text-center">
+                        <svg class="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                        <div class="font-semibold">交换代币</div>
+                        <div class="text-sm opacity-80">与社区成员交换</div>
+                    </button>
+                    
+                    <button type="button" id="stakingButton" class="bg-green-500 text-white p-6 rounded-xl hover:bg-green-600 transition-colors text-center">
+                        <svg class="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                        <div class="font-semibold">质押奖励</div>
+                        <div class="text-sm opacity-80">获得收益</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 路线图 -->
+    <section id="roadmap" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">发展路线图</h2>
+                <p class="text-xl text-gray-600">儒家区块链的发展愿景</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl card-hover shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">已完成</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">第一阶段</h3>
+                    <p class="text-gray-600 mb-4">基础建设</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>✅ CON代币合约部署</li>
+                        <li>✅ 官方网站上线</li>
+                        <li>✅ Leap钱包集成</li>
+                        <li>✅ 社区建设启动</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl card-hover shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">进行中</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">第二阶段</h3>
+                    <p class="text-gray-600 mb-4">交换平台</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>🔄 物品交换平台</li>
+                        <li>🔄 DAO治理系统</li>
+                        <li>🔄 NFT认证系统</li>
+                        <li>🔄 移动端应用</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl card-hover shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-gray-400 text-white px-3 py-1 rounded-full text-sm font-semibold">规划中</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">第三阶段</h3>
+                    <p class="text-gray-600 mb-4">独立区块链</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>📋 Confucian Hub</li>
+                        <li>📋 跨链互操作</li>
+                        <li>📋 验证人网络</li>
+                        <li>📋 全球社区</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center mb-6">
+                <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full mr-3"></div>
+                <span class="text-xl font-bold">儒家区块链</span>
+            </div>
+            <p class="text-gray-400 mb-4">科学法律和儒学的融合，个人社会和宇宙的交响</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" onclick="showComingSoon('GitHub')" class="text-gray-400 hover:text-orange-500 transition-colors">GitHub</a>
+                <a href="#" onclick="showComingSoon('Twitter')" class="text-gray-400 hover:text-orange-500 transition-colors">Twitter</a>
+                <a href="#" onclick="showComingSoon('Discord')" class="text-gray-400 hover:text-orange-500 transition-colors">Discord</a>
+                <a href="#" onclick="showComingSoon('Telegram')" class="text-gray-400 hover:text-orange-500 transition-colors">Telegram</a>
+            </div>
+            <p class="text-sm text-gray-500">© 2024 儒家区块链. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <!-- 通知容器 -->
+    <div id="notificationContainer" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <script>
+        // 全局变量
+        var isConnected = false;
+        var walletAddress = '';
+        var hasRealWallet = (typeof window.leap !== 'undefined' || typeof window.keplr !== 'undefined');
+        
+        // 通知系统
+        function showNotification(message, type) {
+            var container = document.getElementById('notificationContainer');
+            var notification = document.createElement('div');
+            var bgColor = 'bg-blue-500 text-white';
+            
+            if (type === 'success') {
+                bgColor = 'bg-green-500 text-white';
+            } else if (type === 'error') {
+                bgColor = 'bg-red-500 text-white';
+            } else if (type === 'warning') {
+                bgColor = 'bg-yellow-500 text-white';
+            }
+            
+            notification.className = 'p-4 rounded-lg shadow-lg max-w-sm ' + bgColor + ' opacity-0 transform translate-x-full transition-all duration-300';
+            notification.textContent = message;
+            
+            container.appendChild(notification);
+            
+            // 动画显示
+            setTimeout(function() {
+                notification.classList.remove('opacity-0', 'translate-x-full');
+            }, 100);
+            
+            // 自动消失
+            setTimeout(function() {
+                notification.classList.add('opacity-0', 'translate-x-full');
+                setTimeout(function() {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        // 界面更新
+        function updateUI() {
+            var disconnectedState = document.getElementById('disconnectedState');
+            var connectedState = document.getElementById('connectedState');
+            var walletFunctions = document.getElementById('walletFunctions');
+            var navConnectBtn = document.getElementById('navConnectBtn');
+            
+            if (isConnected) {
+                disconnectedState.classList.add('hidden');
+                connectedState.classList.remove('hidden');
+                walletFunctions.classList.remove('hidden');
+                
+                var shortAddress = walletAddress.slice(0, 10) + '...' + walletAddress.slice(-6);
+                document.getElementById('walletAddress').textContent = shortAddress;
+                
+                navConnectBtn.textContent = '已连接';
+                navConnectBtn.className = 'bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors';
+            } else {
+                disconnectedState.classList.remove('hidden');
+                connectedState.classList.add('hidden');
+                walletFunctions.classList.add('hidden');
+                
+                navConnectBtn.textContent = '连接钱包';
+                navConnectBtn.className = 'bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors';
+            }
+        }
+        
+        // 钱包连接
+        function connectWallet() {
+            if (hasRealWallet) {
+                connectRealWallet();
+            } else {
+                connectDemoWallet();
+            }
+        }
+        
+        // 真实钱包连接
+        function connectRealWallet() {
+            try {
+                var wallet = window.leap || window.keplr;
+                wallet.enable('juno-1').then(function() {
+                    var offlineSigner = wallet.getOfflineSigner('juno-1');
+                    return offlineSigner.getAccounts();
+                }).then(function(accounts) {
+                    if (accounts.length > 0) {
+                        walletAddress = accounts[0].address;
+                        isConnected = true;
+                        updateUI();
+                        showNotification('钱包连接成功！', 'success');
+                        queryBalances();
+                    }
+                }).catch(function(error) {
+                    showNotification('连接失败: ' + error.message, 'error');
+                });
+            } catch (error) {
+                showNotification('钱包连接出错', 'error');
+            }
+        }
+        
+        // 演示钱包连接
+        function connectDemoWallet() {
+            walletAddress = 'juno1abc123def456ghi789jkl012mno345pqr678stu';
+            isConnected = true;
+            updateUI();
+            
+            // 显示您的百万代币
+            document.getElementById('conBalance').textContent = '956,324';
+            document.getElementById('junoBalance').textContent = '12.5';
+            document.getElementById('votingPower').textContent = '                                                                                                                                    <!DOCTYPE html>
